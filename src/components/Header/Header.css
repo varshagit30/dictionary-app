@@ -1,5 +1,14 @@
 .title{
-    font-size: 7vw;
+    font-size: 5vw;
     text-transform: uppercase;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 35vh;
+    width: 100%;
 }

@@ -8,10 +8,11 @@ import { Container } from "@mui/material";
 import Header from "./components/Header/Header";
 
 function App() {
-  const fetchData = async () => {
-    const [word, setWord] = useState("");
-    const [wordData, setWordData] = useState([]);
+  const [word, setWord] = useState("");
+  const [wordData, setWordData] = useState([]);
+  const [category, setCategory] = useState("en");
 
+  const fetchData = async () => {
     try {
       const data = await axios.get(
         "https://api.dictionaryapi.dev/api/v2/entries/en/hello"
@@ -29,7 +30,12 @@ function App() {
   return (
     <div className="App">
       <Container className="custom-container" maxWidth="md">
-        <Header />
+        <Header
+          category={category}
+          setCategory={setCategory}
+          word={word}
+          setWord={setWord}
+        />
       </Container>
     </div>
   );
