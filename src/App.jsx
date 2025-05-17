@@ -6,6 +6,8 @@ import "./App.css";
 import { useEffect } from "react";
 import { Container } from "@mui/material";
 import Header from "./components/Header/Header";
+import Definitions from "./components/Definitions/Definitions";
+import categories from "./components/data/category";
 
 function App() {
   const [word, setWord] = useState("");
@@ -15,7 +17,7 @@ function App() {
   const fetchData = async () => {
     try {
       const data = await axios.get(
-        "https://api.dictionaryapi.dev/api/v2/entries/en/hello"
+        `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
       setWordData(data.data);
     } catch (error) {
@@ -25,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [word, category]);
 
   return (
     <div className="App">
@@ -36,6 +38,10 @@ function App() {
           word={word}
           setWord={setWord}
         />
+
+        {meanings && (
+          <Definitions meanings={meanings} word={word} category={category} />
+        )}
       </Container>
     </div>
   );
