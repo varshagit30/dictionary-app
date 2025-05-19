@@ -11,7 +11,7 @@ import categories from "./components/data/category";
 
 function App() {
   const [word, setWord] = useState("");
-  const [wordData, setWordData] = useState([]);
+  const [meanings, setMeanings] = useState([]);
   const [category, setCategory] = useState("en");
 
   const fetchData = async () => {
@@ -19,7 +19,7 @@ function App() {
       const data = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
-      setWordData(data.data);
+      setMeanings(data.data);
     } catch (error) {
       console.log(error);
     }
