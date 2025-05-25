@@ -33,11 +33,11 @@ const Definitions = ({ word, category, LightTheme, meanings }) => {
                     <b>Example :</b> {def.example}
                   </span>
                 )}
-                {def.synonyms && (
+                {/* {def.synonyms && (
                   <span>
                     <b>Synonyms :</b> {def.synonyms.map((s) => `${s}, `)}
                   </span>
-                )}
+                )} */}
               </div>
             ))
           )
